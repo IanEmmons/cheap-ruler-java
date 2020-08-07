@@ -1,3 +1,8 @@
+// cheap-ruler-java is licensed under the BSD 3-Clause
+// License, https://opensource.org/licenses/BSD-3-Clause
+//
+// Copyright (c) 2020, Ian Emmons. All rights reserved.
+
 package mobi.emmons.cheap_ruler;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

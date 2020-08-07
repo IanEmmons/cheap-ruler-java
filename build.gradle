@@ -1,3 +1,8 @@
+// cheap-ruler-java is licensed under the BSD 3-Clause
+// License, https://opensource.org/licenses/BSD-3-Clause
+//
+// Copyright (c) 2020, Ian Emmons. All rights reserved.
+
 plugins {
 	id 'java-library'
 	id 'eclipse'
@@ -36,8 +41,5 @@ test {
 }
 
 // readme.md
-
-// license
-// copyright notices in files
 
 // publication
