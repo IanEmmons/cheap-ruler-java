@@ -1,0 +1,43 @@
+plugins {
+	id 'java-library'
+	id 'eclipse'
+	id 'checkstyle'
+}
+
+group = 'mobi.emmons.cheap_ruler'
+version = '1.0.0'
+sourceCompatibility = '1.8'
+
+repositories {
+	jcenter()
+}
+
+dependencies {
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.2'
+	testImplementation 'org.junit.jupiter:junit-jupiter-params:5.6.2'
+	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.2'
+}
+
+task generateJavadocs(type: Javadoc) {
+	title = 'CheapRuler (Java implementation)'
+	options.addBooleanOption('Xdoclint:all', true)
+	options.addStringOption('Xmaxwarns', '1')
+}
+
+javadoc.dependsOn generateJavadocs
+
+checkstyle {
+	configFile file("${projectDir}/config/checkstyle/checkstyle.xml")
+	toolVersion '8.35'
+}
+
+test {
+	useJUnitPlatform()
+}
+
+// readme.md
+
+// license
+// copyright notices in files
+
+// publication
