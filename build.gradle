@@ -5,6 +5,7 @@
 
 plugins {
 	id 'java-library'
+	id 'maven-publish'
 	id 'eclipse'
 	id 'checkstyle'
 }
@@ -23,13 +24,14 @@ dependencies {
 	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.2'
 }
 
-task generateJavadocs(type: Javadoc) {
+javadoc {
 	title = 'CheapRuler (Java implementation)'
 	options.addBooleanOption('Xdoclint:all', true)
 	options.addStringOption('Xmaxwarns', '1')
+	if(JavaVersion.current().isJava9Compatible()) {
+		options.addBooleanOption('html5', true)
+	}
 }
-
-javadoc.dependsOn generateJavadocs
 
 checkstyle {
 	configFile file("${projectDir}/config/checkstyle/checkstyle.xml")
@@ -40,6 +42,47 @@ test {
 	useJUnitPlatform()
 }
 
-// readme.md
+java {
+	withJavadocJar()
+	withSourcesJar()
+}
 
-// publication
+publishing {
+	publications {
+		cheapRulerJavaPub(MavenPublication) {
+			from components.java
+			pom {
+				name = 'cheap-ruler-java'
+				description = 'Fast approximations for common geodesic measurements'
+				url = 'https://github.com/IanEmmons/cheap-ruler-java'
+				licenses {
+					license {
+						name = 'BSD 3-Clause License'
+						url = 'https://github.com/IanEmmons/cheap-ruler-java/blob/master/LICENSE'
+					}
+				}
+				developers {
+					developer {
+						id = 'IanEmmons'
+						name = 'Ian Emmons'
+						email = 'ian@emmons.mobi'
+					}
+				}
+				scm {
+					connection = 'git@github.com:IanEmmons/cheap-ruler-java.git'
+					developerConnection = 'git@github.com:IanEmmons/cheap-ruler-java.git'
+					url = 'https://github.com/IanEmmons/cheap-ruler-java'
+				}
+			}
+		}
+	}
+
+	repositories {
+		mavenCentral()
+		jcenter()
+		//maven {
+		//	name = 'MavenFileRepo'
+		//	url = "file://${System.env.MAVEN_FILE_REPO}"
+		//}
+	}
+}
