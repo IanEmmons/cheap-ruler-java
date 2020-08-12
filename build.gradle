@@ -6,6 +6,7 @@
 plugins {
 	id 'java-library'
 	id 'maven-publish'
+	id 'signing'
 	id 'eclipse'
 	id 'checkstyle'
 }
@@ -78,11 +79,23 @@ publishing {
 	}
 
 	repositories {
-		mavenCentral()
-		jcenter()
+		//mavenCentral()
+		//jcenter()
 		//maven {
 		//	name = 'MavenFileRepo'
 		//	url = "file://${System.env.MAVEN_FILE_REPO}"
 		//}
+		maven {
+			name = 'SonatypeOssrhRepo'
+			url = 'https://oss.sonatype.org/service/local/staging/deploy/maven2'
+			credentials {
+				username "$sonatypeOssrhUser"
+				password "$sonatypeOssrhPassword"
+			}
+		}
 	}
+}
+
+signing {
+	sign publishing.publications.cheapRulerJavaPub
 }
