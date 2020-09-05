@@ -18,10 +18,16 @@ public enum Unit {
 
 	private final double multiplier;
 
-	Unit(double multiplier) {
+	private Unit(double multiplier) {
 		this.multiplier = multiplier;
 	}
 
+	/**
+	 * Returns the factor by which one must multiply a distance in kilometers to
+	 * convert it to a distance in this unit.
+	 *
+	 * @return Conversion factor from kilometers to this unit
+	 */
 	public double getMultiplier() {
 		return multiplier;
 	}

@@ -4,6 +4,7 @@
 // Copyright (c) 2020, Ian Emmons. All rights reserved.
 
 /**
- * This is the documentation for the package.
+ * A collection of very fast approximations to common geodesic measurements.
+ * See the documentation of the CheapRuler class for complete documentation.
  */
 package mobi.emmons.cheap_ruler;

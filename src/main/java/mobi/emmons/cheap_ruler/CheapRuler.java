@@ -14,7 +14,7 @@ import java.util.List;
  * Can be an order of magnitude faster than corresponding
  * <a href="http://turfjs.org/">Turf</a> methods.
  *
- * <P>The approximations are based on the
+ * <p>The approximations are based on the
  * <a href="https://en.wikipedia.org/wiki/Earth_radius#Meridional">WGS84
  * ellipsoid model of the Earth</a>, projecting coordinates to a flat surface
  * that approximates the ellipsoid around a certain latitude. For distances
@@ -23,16 +23,18 @@ import java.util.List;
  * <a href="https://en.wikipedia.org/wiki/Vincenty%27s_formulae">Vincenti</a>
  * formulas, and usually much less for shorter distances.
  *
- * <P>This library is a A Java port of the original
+ * <p>The CheapRuler class is immutable.
+ *
+ * <p>This library is a A Java port of the original
  * <a href="https://github.com/mapbox/cheap-ruler">JavaScript library</a>.
  */
 public final class CheapRuler {
 	// Values that define the WGS84 ellipsoid model of the Earth:
-	private static double RE = 6378.137;				// equatorial radius
-	private static double FE = 1.0 / 298.257223563;	// flattening
+	private static final double RE = 6378.137;				// equatorial radius
+	private static final double FE = 1.0 / 298.257223563;	// flattening
 
-	private static double E2 = FE * (2 - FE);
-	private static double RAD = Math.PI / 180.0;
+	private static final double E2 = FE * (2 - FE);
+	private static final double RAD = Math.PI / 180.0;
 
 	private final double ky;
 	private final double kx;

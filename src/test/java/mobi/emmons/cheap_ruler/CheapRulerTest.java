@@ -53,7 +53,6 @@ class CheapRulerTest {
 		return IntStream.range(0, CheapRulerTestData.LINES.length);
 	}
 
-	@SuppressWarnings("static-method")
 	@ParameterizedTest
 	@MethodSource("pointsIndexRangeMinusOne")
 	public void testDistanceKm(int i) {
@@ -64,7 +63,6 @@ class CheapRulerTest {
 		assertErr(expected, actual, .003);
 	}
 
-	@SuppressWarnings("static-method")
 	@Test
 	public void testDistanceMi() {
 		double d = kmRuler.distance(new Point(30.5, 32.8351), new Point(30.51, 32.8451));
@@ -72,7 +70,6 @@ class CheapRulerTest {
 		assertErr(d / d2, 1.609344, 1e-12);
 	}
 
-	@SuppressWarnings("static-method")
 	@ParameterizedTest
 	@MethodSource("pointsIndexRangeMinusOne")
 	public void testBearing(int i) {
@@ -83,7 +80,6 @@ class CheapRulerTest {
 		assertErr(expected, actual, .005);
 	}
 
-	@SuppressWarnings("static-method")
 	@ParameterizedTest
 	@MethodSource("pointsIndexRange")
 	public void testDestination(int i) {
@@ -95,7 +91,6 @@ class CheapRulerTest {
 		assertErr(expected.getLon(), actual.getLon(), 1e-6);	// latitude
 	}
 
-	@SuppressWarnings("static-method")
 	@Test
 	public void testEmptyLineDistance() {
 		LineString emptyLine = new LineString();
@@ -104,7 +99,6 @@ class CheapRulerTest {
 		assertErr(expected, actual, 0.0);
 	}
 
-	@SuppressWarnings("static-method")
 	@ParameterizedTest
 	@MethodSource("linesIndexRange")
 	public void testLineDistance(int i) {
@@ -113,7 +107,6 @@ class CheapRulerTest {
 		assertErr(expected, actual, 0.003);
 	}
 
-	@SuppressWarnings("static-method")
 	@ParameterizedTest
 	@MethodSource("linesIndexRange")
 	public void testArea(int i) {
@@ -135,7 +128,6 @@ class CheapRulerTest {
 		}
 	}
 
-	@SuppressWarnings("static-method")
 	@Test
 	public void testAlongEmptyLine() {
 		Point emptyPoint = new Point(0, 0);
@@ -147,7 +139,6 @@ class CheapRulerTest {
 		assertErr(expected.getLon(), actual.getLon(), 0.0);
 	}
 
-	@SuppressWarnings("static-method")
 	@ParameterizedTest
 	@MethodSource("linesIndexRange")
 	public void testAlong(int i) {
@@ -159,21 +150,18 @@ class CheapRulerTest {
 		assertErr(expected.getLon(), actual.getLon(), 1e-6); // along latitude
 	}
 
-	@SuppressWarnings("static-method")
 	@Test
 	public void testAlongWithDist() {
 		LineString line0 = CheapRulerTestData.LINES[0];
 		assertEquals(kmRuler.along(line0, -5), line0.get(0));
 	}
 
-	@SuppressWarnings("static-method")
 	@Test
 	public void testAlongWithDistGreaterThanLength() {
 		LineString line0 = CheapRulerTestData.LINES[0];
 		assertEquals(kmRuler.along(line0, 1000), line0.get(line0.size() - 1));
 	}
 
-	@SuppressWarnings("static-method")
 	@Test
 	public void testPointOnLine() {
 		// not using a Turf comparison because pointOnLine is buggy. See
@@ -194,7 +182,6 @@ class CheapRulerTest {
 			"t is not bigger than 1");
 	}
 
-	@SuppressWarnings("static-method")
 	@Test
 	public void testPointToSegmentDistance() {
 		Point p = new Point(-77.034076, 38.882017);
@@ -204,7 +191,6 @@ class CheapRulerTest {
 		assertErr(0.37461484020420416, distance, 1e-6);
 	}
 
-	@SuppressWarnings("static-method")
 	@ParameterizedTest
 	@MethodSource("linesIndexRange")
 	public void testLineSlice(int i) {
@@ -219,7 +205,6 @@ class CheapRulerTest {
 		assertErr(expected, actual, 1e-4);
 	}
 
-	@SuppressWarnings("static-method")
 	@Test
 	public void testLineSliceAlongEmptyLine() {
 		LineString emptyLine = new LineString();
@@ -228,7 +213,6 @@ class CheapRulerTest {
 		assertErr(expected, actual, 0.0);
 	}
 
-	@SuppressWarnings("static-method")
 	@ParameterizedTest
 	@MethodSource("linesIndexRange")
 	public void testLineSliceAlong(int i) {
@@ -246,7 +230,6 @@ class CheapRulerTest {
 		assertErr(expected, actual, 1e-4);
 	}
 
-	@SuppressWarnings("static-method")
 	@Test
 	public void testLineSliceReverse() {
 		LineString line = CheapRulerTestData.LINES[0];
@@ -258,7 +241,6 @@ class CheapRulerTest {
 		assertErr(0.018676476689649835, actual, 1e-6);
 	}
 
-	@SuppressWarnings("static-method")
 	@ParameterizedTest
 	@MethodSource("pointsIndexRange")
 	public void testBufferPoint(int i) {
@@ -271,7 +253,6 @@ class CheapRulerTest {
 		assertErr(expected.getMax().getLon(), actual.getMax().getLon(), 2e-7);
 	}
 
-	@SuppressWarnings("static-method")
 	@Test
 	public void testBufferBBox() {
 		Box bbox = new Box(new Point(30, 38), new Point(40, 39));
@@ -283,7 +264,6 @@ class CheapRulerTest {
 		assertErr(bbox2.getMax().getLon(), 39.00901728774289, 1e-6);
 	}
 
-	@SuppressWarnings("static-method")
 	@Test
 	public void testInsideBBox() {
 		Box bbox = new Box(new Point(30, 38), new Point(40, 39));
@@ -292,7 +272,6 @@ class CheapRulerTest {
 		assertFalse(CheapRuler.insideBBox(new Point(45, 45), bbox));
 	}
 
-	@SuppressWarnings("static-method")
 	@Test
 	public void testFromTile() {
 		CheapRuler ruler1 = CheapRuler.fromLatitude(50.5, Unit.KILOMETERS);
@@ -304,7 +283,6 @@ class CheapRulerTest {
 		assertErr(ruler1.distance(p1, p2), ruler2.distance(p1, p2), 2e-5);
 	}
 
-	@SuppressWarnings("static-method")
 	@Test
 	public void testLongitudeWrap() {
 		CheapRuler r = CheapRuler.fromLatitude(50.5, Unit.KILOMETERS);

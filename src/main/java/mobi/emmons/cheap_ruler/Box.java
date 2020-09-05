@@ -8,7 +8,7 @@ package mobi.emmons.cheap_ruler;
 import java.util.Objects;
 
 /**
- * A simple geospatial box class.
+ * An immutable class representing a geospatial box.
  */
 public final class Box {
 	private final Point min;

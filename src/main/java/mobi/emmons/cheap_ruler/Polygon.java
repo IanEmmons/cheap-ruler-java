@@ -6,6 +6,8 @@
 package mobi.emmons.cheap_ruler;
 
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
@@ -13,13 +15,19 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * A simple representation of polygon as a list of linear rings.
+ * An immutable class representing a polygon as a list of linear rings.
  */
 public final class Polygon implements Iterable<LinearRing> {
 	private final List<LinearRing> linearRings;
 
 	public Polygon(LinearRing... linearRings) {
-		this.linearRings = Arrays.asList(linearRings);
+		this.linearRings = Collections.unmodifiableList(
+			Arrays.asList(linearRings));
+	}
+
+	public Polygon(Collection<LinearRing> linearRings) {
+		this.linearRings = Collections.unmodifiableList(
+			linearRings.stream().collect(Collectors.toList()));
 	}
 
 	public LinearRing get(int i) {
