@@ -9,6 +9,7 @@ plugins {
 	id 'signing'
 	id 'eclipse'
 	id 'checkstyle'
+	id "com.github.spotbugs" version "4.5.0"
 }
 
 group = 'mobi.emmons.cheap_ruler'
