@@ -8,8 +8,6 @@ plugins {
 	id 'maven-publish'
 	id 'signing'
 	id 'eclipse'
-	id 'checkstyle'
-	id "com.github.spotbugs" version "4.5.0"
 }
 
 group = 'mobi.emmons.cheap_ruler'
@@ -17,13 +15,15 @@ version = '1.0.1'
 sourceCompatibility = '1.8'
 
 repositories {
-	jcenter()
+	mavenCentral()
 }
 
 dependencies {
-	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.2'
-	testImplementation 'org.junit.jupiter:junit-jupiter-params:5.6.2'
-	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.2'
+	testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+}
+
+tasks.withType(JavaCompile) {
+	options.compilerArgs += '-Xlint:all'
 }
 
 javadoc {
@@ -33,11 +33,6 @@ javadoc {
 	if(JavaVersion.current().isJava9Compatible()) {
 		options.addBooleanOption('html5', true)
 	}
-}
-
-checkstyle {
-	configFile file("${projectDir}/config/checkstyle/checkstyle.xml")
-	toolVersion '8.35'
 }
 
 test {
