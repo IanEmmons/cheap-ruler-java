@@ -8,7 +8,7 @@ package mobi.emmons.cheap_ruler;
 import java.util.Objects;
 
 /**
- * A simple geospatial point class representing a (latitude, longitude) pair.
+ * An immutable point class representing a geospatial (latitude, longitude) pair.
  */
 public final class Point {
 	private final double lat;

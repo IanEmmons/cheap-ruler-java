@@ -7,6 +7,7 @@ package mobi.emmons.cheap_ruler;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
@@ -14,18 +15,20 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * A simple representation of a line-string as a list of points, where each
+ * An immutable class representing a line-string as a list of points, where each
  * point in the list is assumed to be connected to the next.
  */
 public final class LineString implements Iterable<Point> {
 	private final List<Point> points;
 
 	public LineString(Point... points) {
-		this.points = Arrays.asList(points);
+		this.points = Collections.unmodifiableList(
+			Arrays.asList(points));
 	}
 
 	public LineString(Collection<Point> points) {
-		this.points = points.stream().collect(Collectors.toList());
+		this.points = Collections.unmodifiableList(
+			points.stream().collect(Collectors.toList()));
 	}
 
 	public Point get(int i) {

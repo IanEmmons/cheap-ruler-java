@@ -5,10 +5,10 @@
 
 package mobi.emmons.cheap_ruler;
 
-public class CheapRulerTestData {
+final class CheapRulerTestData {
 	private CheapRulerTestData() {}	// prevent instantiation
 
-	public static final double[] TURF_DISTANCE = {
+	static final double[] TURF_DISTANCE = {
 		0.008378522721530966,
 		0,
 		0.010749717813535198,
@@ -407,7 +407,7 @@ public class CheapRulerTestData {
 		0.04458140027621235
 	};
 
-	public static final double[] TURF_BEARING = {
+	static final double[] TURF_BEARING = {
 		-63.16835850131531,
 		0,
 		-88.81417863186009,
@@ -806,7 +806,7 @@ public class CheapRulerTestData {
 		90.5716881361661
 	};
 
-	public static final Point[] TURF_DESTINATION = {
+	static final Point[] TURF_DESTINATION = {
 		new Point(-96.92034100000001, 32.82927060622736),
 		new Point(-96.92060772614725, 32.829305975369245),
 		new Point(-96.92079439543319, 32.82931008237797),
@@ -1206,7 +1206,7 @@ public class CheapRulerTestData {
 		new Point(-96.9208148234328, 32.8294894614045)
 	};
 
-	public static final double[] TURF_LINE_DISTANCE = {
+	static final double[] TURF_LINE_DISTANCE = {
 		0.04662454909427901,
 		0.0068391514197623125,
 		0.09985216775589113,
@@ -1267,7 +1267,7 @@ public class CheapRulerTestData {
 		0.04458140027621235
 	};
 
-	public static final double[] TURF_AREA = {
+	static final double[] TURF_AREA = {
 		0.00001385291315291015,
 		-1.0,
 		0.00038253063343961127,
@@ -1328,7 +1328,7 @@ public class CheapRulerTestData {
 		-1.0
 	};
 
-	public static final double[] TURF_ALONG_DIST = {
+	static final double[] TURF_ALONG_DIST = {
 		0.023312274547139505,
 		0.0034195757098811562,
 		0.049926083877945567,
@@ -1389,7 +1389,7 @@ public class CheapRulerTestData {
 		0.022290700138106176
 	};
 
-	public static final Point[] TURF_ALONG = {
+	static final Point[] TURF_ALONG = {
 		new Point(-96.92058074705263, 32.838295790638604),
 		new Point(-96.92038500000224, 32.838300500005154),
 		new Point(-96.92017837949811, 32.837840876146984),
@@ -1450,7 +1450,7 @@ public class CheapRulerTestData {
 		new Point(-96.91476449999463, 32.83676500022616)
 	};
 
-	public static final double[] TURF_LINE_SLICE = {
+	static final double[] TURF_LINE_SLICE = {
 		0.018676803463204973,
 		0.0027403004691342625,
 		0.0398660924057463,
@@ -1511,7 +1511,7 @@ public class CheapRulerTestData {
 		0.0178652399166501
 	};
 
-	public static final Box[] TURF_BUFFER_POINT = {
+	static final Box[] TURF_BUFFER_POINT = {
 		new Box(
 			new Point(-96.92206300843843, 32.83681412509083),
 			new Point(-96.91861893543, 32.83970785132817)),
@@ -2705,7 +2705,7 @@ public class CheapRulerTestData {
 			new Point(-96.91280396448872, 32.83820985132885))
 	};
 
-	public static final Point[] POINTS = {
+	static final Point[] POINTS = {
 		new Point(-96.920341, 32.838261),
 		new Point(-96.920421, 32.838295),
 		new Point(-96.920421, 32.838295),
@@ -3105,7 +3105,7 @@ public class CheapRulerTestData {
 		new Point(-96.914526, 32.836763)
 	};
 
-	public static final LineString[] LINES = {
+	static final LineString[] LINES = {
 		new LineString(
 			new Point(-96.920341, 32.838261),
 			new Point(-96.920421, 32.838295),

@@ -8,8 +8,8 @@ package mobi.emmons.cheap_ruler;
 import java.util.Objects;
 
 /**
- * A tuple used to return three values from the method CheapRuler.pointOnLine().
- * See the documentation of that method for details.
+ * An immutable tuple used to return three values from the method
+ * CheapRuler.pointOnLine(). See the documentation of that method for details.
  */
 public final class PointIndexT {
 	private final Point point;
